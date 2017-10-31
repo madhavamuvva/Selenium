@@ -1,12 +1,11 @@
 pipeline:
   test:
-    image: node:latest
+    image: drone/drone:latest
     commands:
       - yarn install
       - yarn build
       - yarn start
       - yarn test
-
 services:
 selenium-hub:
   image: selenium/hub

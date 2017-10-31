@@ -1,11 +1,7 @@
 pipeline:
-  build:
-    image: golang
-    commands:
-      - go build
-      - go test
-    mem_limit: 1000000000
-
+ test:
+   image: openjdk
+   commands: mvn clean install
 services:
  selenium-hub:
   image: selenium/hub

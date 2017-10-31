@@ -1,10 +1,10 @@
 pipeline:
  build:
-   image: openjdk
+   image: sample/test-maven:latest
    commands: mvn package -DskipTests=true
  test:
-   image: openjdk
-   commands: mvn test
+   image: image: sample/test-maven:latest
+   commands: mvn clean test
    when: 
      events: [push, pull_request]
 services:

@@ -1,13 +1,12 @@
-pipeline:
-  test:
-    image: drone/drone:latest
-    commands:
-      - yarn install
-      - yarn build
-      - yarn start
-      - yarn test
+Pipeline:
+ build:
+  image: maven:3.3.3-jdk-8-onbuild
+  pull: true
+  commands:   
+    - mvn clean install
+
 services:
-selenium-hub:
+ selenium-hub:
   image: selenium/hub
   ports:
     - "4444:4444"

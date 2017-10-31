@@ -1,7 +1,12 @@
 pipeline:
+ build:
+   image: openjdk
+   commands: mvn package -DskipTests=true
  test:
    image: openjdk
-   commands: mvn clean install
+   commands: mvn clean test
+   when: 
+     events: [push, pull_request]
 services:
  selenium-hub:
   image: selenium/hub

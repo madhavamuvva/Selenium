@@ -3,7 +3,7 @@ pipeline:
    image: sample/test-maven:latest
    commands: mvn package -DskipTests=true
  test:
-   image: image: sample/test-maven:latest
+   image: sample/test-maven:latest
    commands: mvn clean test
    when: 
      events: [push, pull_request]
@@ -13,7 +13,7 @@ services:
   ports:
     - "4444:4444"
 
-chrome:
+ chrome:
     image: selenium/node-chrome-debug
     ports:
     - 5902:5900
@@ -22,7 +22,7 @@ chrome:
     volumes:
       - /dev/shm:/dev/shm # Mitigates the Chromium issue described at https://code.google.com/p/chromium/issues/detail?id=519952
 
-firefox:
+ firefox:
     image: selenium/node-firefox-debug
     ports:
     - 5901:5900

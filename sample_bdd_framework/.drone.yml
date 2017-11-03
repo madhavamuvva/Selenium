@@ -1,4 +1,14 @@
 pipeline: 
+    test: 
+    commands: "mvn clean install -DBROWSER=dockerchrome"
+    image: "sample/test-maven:latest"
+    when: 
+      events: 
+        - push
+        - pull_request
+services:
+  selenium-hub:
+    image: selenium/hub
   firefox:
     image: selenium/node-firefox
     detach: true
@@ -11,13 +21,3 @@ pipeline:
     environment:
       - HUB_PORT_4444_TCP_ADDR=selenium-hub
       - HUB_PORT_4444_TCP_PORT=4444
-  test: 
-    commands: "mvn clean install -DBROWSER=dockerchrome"
-    image: "sample/test-maven:latest"
-    when: 
-      events: 
-        - push
-        - pull_request
-services:
-  selenium-hub:
-    image: selenium/hub

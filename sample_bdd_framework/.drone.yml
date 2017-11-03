@@ -1,16 +1,4 @@
 pipeline: 
-  firefox:
-    image: selenium/node-firefox
-    detach: true
-    environment:
-      - HUB_PORT_4444_TCP_ADDR=selenium-hub
-      - HUB_PORT_4444_TCP_PORT=4444
-  chrome:
-    image: selenium/node-chrome
-    detach: true
-    environment:
-      - HUB_PORT_4444_TCP_ADDR=selenium-hub
-      - HUB_PORT_4444_TCP_PORT=4444
   test: 
     commands: "mvn clean install -DBROWSER=dockerchrome"
     image: "sample/test-maven:latest"
@@ -21,3 +9,17 @@ pipeline:
 services:
   selenium-hub:
     image: selenium/hub
+  chrome:
+    image: selenium/node-chrome
+    environment:
+      SE_OPTS: "-port 4445"
+      HUB_PORT_4444_TCP_ADDR: selenium-hub
+      HUB_PORT_4444_TCP_PORT: 4444
+
+  firefox:
+    image: selenium/node-firefox
+    environment:
+      SE_OPTS: "-port 4446"
+      HUB_PORT_4444_TCP_ADDR: selenium-hub
+      HUB_PORT_4444_TCP_PORT: 4444
+      DISPLAY: ":98.0"

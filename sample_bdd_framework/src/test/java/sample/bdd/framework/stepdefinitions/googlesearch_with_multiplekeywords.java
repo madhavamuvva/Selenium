@@ -36,7 +36,7 @@ public class googlesearch_with_multiplekeywords {
 	@When("^user clicked on the google search button1$")
 	public void user_clicked_on_the_google_search_button() throws Throwable {
 		googlesearch.click_googlesearchbutton();
-		helpermethods.ExplicitPageLoad_Until_ElementToBeClickable(new googlesearchresultspageobjects().seleniumlink, timeout);
+		helpermethods.ExplicitPageLoad_Until_ElementToBeClickable(new googlesearchresultspageobjects().seleniumwebdriverlink, timeout);
 		helpermethods.add_StepMessage_TakeScreenshot_Attach_to_Extent_Report("User Sucessfully clicked on the google search button", getClass().getName()+"When1");
 	}
 

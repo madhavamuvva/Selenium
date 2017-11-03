@@ -8,6 +8,7 @@ import sample.bdd.framework.helperclasses.helpermethods;
 import sample.bdd.framework.helperclasses.webdriverproperty;
 
 public class googlesearchpageobjects {	
+	String browser ;
 	public googlesearchpageobjects()
 	{
 		PageFactory.initElements(webdriverproperty.getDriver(), this);		
@@ -43,7 +44,7 @@ public class googlesearchpageobjects {
 	 */
 	public googlesearchresultspageobjects click_googlesearchbutton()
 	{
-		helpermethods.Click_button_Chrome(googlesearchbutton);
+	    helpermethods.Click_button_Chrome(googlesearchbutton);		
 		return new googlesearchresultspageobjects();
 	}
 	/*

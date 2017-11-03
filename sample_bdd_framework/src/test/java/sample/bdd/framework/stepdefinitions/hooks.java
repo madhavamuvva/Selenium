@@ -30,7 +30,7 @@ public class hooks {
 		if (browser == null) {
 			browser = System.getenv("BROWSER");
 			if (browser == null) {
-				browser = "dockerchrome";
+				browser = "dockerfirefox";
 			}
 		}
 			switch (browser) {
@@ -38,6 +38,7 @@ public class hooks {
 			case "dockerfirefox":				
 				DesiredCapabilities firefoxcapability = DesiredCapabilities.firefox();
 				firefoxcapability.setBrowserName("firefox");
+				//firefoxcapability.setVersion("55.0");
 	            firefoxcapability.setPlatform(Platform.LINUX);
 	            try {
 	            webdriverproperty.driver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), firefoxcapability));
@@ -52,6 +53,17 @@ public class hooks {
 				 chromecapability.setPlatform(Platform.LINUX);
 				try {
 					webdriverproperty.driver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromecapability));
+				} catch (MalformedURLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				break;
+			case "dockeredge":
+				 DesiredCapabilities edgecapability = DesiredCapabilities.edge();
+				 edgecapability.setBrowserName("MicrosoftEdge");
+				 edgecapability.setPlatform(Platform.LINUX);
+				try {
+					webdriverproperty.driver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), edgecapability));
 				} catch (MalformedURLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

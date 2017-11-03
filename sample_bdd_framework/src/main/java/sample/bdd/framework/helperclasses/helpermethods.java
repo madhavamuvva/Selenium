@@ -28,7 +28,7 @@ public class helpermethods {
 		// Navigate to the url of the website
 		webdriverproperty.getDriver().get(propertyvariable.siteUrl);
 		// Maximise the window
-		//webdriverproperty.getDriver().manage().window().setSize(new Dimension(1920, 1080));
+		webdriverproperty.getDriver().manage().window().setSize(new Dimension(1920, 1080));
 		// Implicitly Wait for the page to load
 		helpermethods.ImplicitPageLoad(timeout);
 	}

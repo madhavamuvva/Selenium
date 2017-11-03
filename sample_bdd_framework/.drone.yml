@@ -4,13 +4,13 @@ pipeline:
     detach: true
     environment:
       HUB_PORT_4444_TCP_ADDR: selenium-hub
-      HUB_PORT_4444_TCP_PORT: 4444
+      HUB_PORT_4444_TCP_PORT: "4444"
   chrome:
     image: selenium/node-chrome
     detach: true
     environment:
       HUB_PORT_4444_TCP_ADDR: selenium-hub
-      HUB_PORT_4444_TCP_PORT: 4444
+      HUB_PORT_4444_TCP_PORT: "4444"
   test: 
     commands: "mvn clean install -DBROWSER=dockerchrome"
     image: "sample/test-maven:latest"

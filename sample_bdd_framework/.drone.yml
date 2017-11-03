@@ -14,12 +14,12 @@ services:
     environment:
       SE_OPTS: "-port 4445"
       HUB_PORT_4444_TCP_ADDR: selenium-hub
-      HUB_PORT_4444_TCP_PORT: 4444
+      HUB_PORT_4444_TCP_PORT: "4444"
 
   firefox:
     image: selenium/node-firefox
     environment:
       SE_OPTS: "-port 4446"
       HUB_PORT_4444_TCP_ADDR: selenium-hub
-      HUB_PORT_4444_TCP_PORT: 4444
+      HUB_PORT_4444_TCP_PORT: "4444"
       DISPLAY: ":98.0"

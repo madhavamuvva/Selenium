@@ -36,7 +36,7 @@ public class googlesearchpageobjects {
 	public void enter_keyword_in_searchtextbox(String keyword)
 	{
 		googlesearchtextbox.sendKeys(keyword);
-		clickaccountelement.click();
+		//clickaccountelement.click();
 	}
 	
 	/*

@@ -12,8 +12,8 @@ pipeline:
       - HUB_PORT_4444_TCP_ADDR=selenium-hub
       - HUB_PORT_4444_TCP_PORT=4444
     test:
-    commands: "mvn clean install -DBROWSER=dockerchrome"
     image: "maven:alpine"
+    commands: "mvn clean install -DBROWSER=dockerchrome"
     when:
       events:
         - push

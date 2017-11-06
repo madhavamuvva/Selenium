@@ -13,7 +13,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(features = "src/test/resources/features", glue = "sample.bdd.framework.stepdefinitions", dryRun = false, plugin = {
 		"html:target/cucumber-html-report", "json:target/cucumber.json", "pretty:target/cucumber-pretty.txt",
 		"usage:target/cucumber-usage.json", "junit:target/cucumber-results.xml",
-		"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber/extentreport.html" })
+		"com.cucumber.listener.ExtentCucumberFormatter:output/cucumber/extentreport.html" })
 
 public class TestRunner {
 

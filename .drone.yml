@@ -13,7 +13,7 @@ pipeline:
       - HUB_PORT_4444_TCP_PORT=4444
     test:
     image: "maven:alpine"
-    commands: "mvn clean install -DBROWSER=dockerchrome"
+    commands: "mvn clean install"
     when:
       events:
         - push

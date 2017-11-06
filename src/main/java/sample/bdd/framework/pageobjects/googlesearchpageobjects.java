@@ -20,8 +20,8 @@ public class googlesearchpageobjects {
 	@FindBy(name="btnK")
 	public WebElement googlesearchbutton;
 	
-	@FindBy(xpath="//DIV[@id='lga']")
-	public WebElement pagebodyelement;
+	@FindBy(xpath="//SPAN[@class='gb_bb gbii']")
+	public WebElement clickaccountelement;
 	/*
 	 * clear search text box
 	 */
@@ -36,7 +36,7 @@ public class googlesearchpageobjects {
 	public void enter_keyword_in_searchtextbox(String keyword)
 	{
 		googlesearchtextbox.sendKeys(keyword);
-		pagebodyelement.click();
+		clickaccountelement.click();
 	}
 	
 	/*

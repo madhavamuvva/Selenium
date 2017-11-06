@@ -20,7 +20,7 @@ public class googlesearchpageobjects {
 	@FindBy(name="btnK")
 	public WebElement googlesearchbutton;
 	
-	@FindBy(xpath="//DIV[@id='viewport']")
+	@FindBy(xpath="//DIV[@id='sb_ifc0']")
 	public WebElement pagebodyelement;
 	/*
 	 * clear search text box

@@ -11,9 +11,9 @@ pipeline:
     environment:
       - HUB_PORT_4444_TCP_ADDR=selenium-hub
       - HUB_PORT_4444_TCP_PORT=4444
-    test:
+  test:
+    image: "maven:alpine"
     commands: "mvn clean install"
-    image: maven:alpine
     when:
       events:
         - push

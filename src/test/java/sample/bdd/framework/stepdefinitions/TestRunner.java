@@ -24,7 +24,7 @@ public class TestRunner {
 	    ExtentProperties extentProperties = ExtentProperties.INSTANCE;
 	    extentProperties.setReportPath("output/myreport.html");
 	    extentProperties.setExtentXServerUrl("http://172.50.10.239:1337");
-	    extentProperties.setProjectName("MyProject");
+	    extentProperties.setProjectName("sampleproject");
 	}
 
 	@AfterClass

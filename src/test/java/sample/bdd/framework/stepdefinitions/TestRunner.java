@@ -24,7 +24,7 @@ public class TestRunner {
 	    ExtentProperties extentProperties = ExtentProperties.INSTANCE;
 	    extentProperties.setReportPath("target/cucumber/extentreport.html");
 	    extentProperties.setExtentXServerUrl("http://172.50.10.239:1337");
-	    extentProperties.setProjectName("sampleproject");
+	    extentProperties.setProjectName("sampleproject");	   
 	}
 
 	@AfterClass
@@ -33,7 +33,7 @@ public class TestRunner {
 		Reporter.setSystemInfo("user", System.getProperty("user.name"));
 		Reporter.setSystemInfo("os", "Mac OSX");
 		Reporter.setTestRunnerOutput("Sample test runner output message");
-		Reporter.setSystemInfo("buildno","1.0");
+		Reporter.setSystemInfo("buildno","${build.no}");
 	}
 
 }

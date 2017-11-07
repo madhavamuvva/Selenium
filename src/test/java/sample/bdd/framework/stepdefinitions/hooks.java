@@ -30,7 +30,7 @@ public class hooks {
 		if (browser == null) {
 			browser = System.getenv("BROWSER");
 			if (browser == null) {
-				browser = "dockerfirefox";
+				browser = "dockerchrome";
 			}
 		}
 			switch (browser) {

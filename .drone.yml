@@ -14,7 +14,7 @@ pipeline:
   test:
     image: "maven:alpine"
     commands:
-      - "mvn clean install -DBROWSER=dockerchrome"
+      - "mvn clean install"
     when:
       events:
         - push

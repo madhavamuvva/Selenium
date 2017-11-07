@@ -19,14 +19,6 @@ import cucumber.api.junit.Cucumber;
 		"com.cucumber.listener.ExtentCucumberFormatter:" })
 
 public class TestRunner {
-
-	@BeforeClass
-	public static void setup() {
-	    ExtentProperties extentProperties = ExtentProperties.INSTANCE;
-	    extentProperties.setReportPath("target/cucumber/extentreport.html");
-	    //extentProperties.setExtentXServerUrl("http://localhost:1337");
-	    extentProperties.setProjectName("Sampleproject");
-	}
 	@AfterClass
 	public static void teardown() {
 		Reporter.loadXMLConfig(new File("src/main/resources/extent-config.xml"));

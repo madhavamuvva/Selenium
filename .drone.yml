@@ -1,6 +1,5 @@
 workspace:
   path: /drone/src/github.com/madhavamuvva/Selenium
-
 pipeline:
   firefox:
     image: selenium/node-firefox

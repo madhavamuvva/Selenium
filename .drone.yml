@@ -12,9 +12,15 @@ pipeline:
       - HUB_PORT_4444_TCP_ADDR=selenium-hub
       - HUB_PORT_4444_TCP_PORT=4444
   test:
-    image: "maven:alpine"
+    image: maven:alpine
+    environment:
+      - DOCKER_API_VERSION=1.32
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
     commands:
-      - "mvn clean install"
+     - "export DOCKER_HOST=unix:///var/run/docker.sock"
+     - mvn clean test
+     - mvn clean install
     when:
       events:
         - push

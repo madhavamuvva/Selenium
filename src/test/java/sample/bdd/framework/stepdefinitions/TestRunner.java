@@ -23,7 +23,7 @@ public class TestRunner {
 	public static void setup() {
 	    ExtentProperties extentProperties = ExtentProperties.INSTANCE;
 	    extentProperties.setReportPath("target/cucumber/extentreport.html");
-	    extentProperties.setExtentXServerUrl("http://172.50.10.239:1337");
+	    extentProperties.setExtentXServerUrl("http://52.56.238.19:1337");
 	    extentProperties.setProjectName("sampleproject");
 	}
 

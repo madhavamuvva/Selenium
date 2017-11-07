@@ -63,7 +63,7 @@ public class hooks {
 				 edgecapability.setBrowserName("MicrosoftEdge");
 				 edgecapability.setPlatform(Platform.LINUX);
 				try {
-					webdriverproperty.driver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), edgecapability));
+					webdriverproperty.driver.set(new RemoteWebDriver(new URL("http://selenium-hub:4444/wd/hub"), edgecapability));
 				} catch (MalformedURLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

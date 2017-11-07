@@ -5,6 +5,8 @@ import java.io.File;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
+
+import com.cucumber.listener.ExtentProperties;
 import com.cucumber.listener.Reporter;
 
 import cucumber.api.CucumberOptions;
@@ -14,16 +16,17 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(features = "src/test/resources/features", glue = "sample.bdd.framework.stepdefinitions", dryRun = false, plugin = {
 		"html:target/cucumber-html-report", "json:target/cucumber.json", "pretty:target/cucumber-pretty.txt",
 		"usage:target/cucumber-usage.json", "junit:target/cucumber-results.xml",
-		"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber/extentreport.html" })
+		"com.cucumber.listener.ExtentCucumberFormatter:" })
 
 public class TestRunner {
 
 	@BeforeClass
 	public static void setup() {
 	    ExtentProperties extentProperties = ExtentProperties.INSTANCE;
-	    extentProperties.setReportPath("output/myreport.html");
+	    extentProperties.setReportPath("target/cucumber/extentreport.html");
 	    extentProperties.setExtentXServerUrl("http://localhost:1337");
-	    extentProperties.setProjectName("MyProject");
+	    extentProperties.setProjectName("Sampleproject");
+	}
 	@AfterClass
 	public static void teardown() {
 		Reporter.loadXMLConfig(new File("src/main/resources/extent-config.xml"));

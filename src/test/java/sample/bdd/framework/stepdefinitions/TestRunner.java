@@ -23,7 +23,7 @@ public class TestRunner {
 	public static void setup() {
 	    ExtentProperties extentProperties = ExtentProperties.INSTANCE;
 	    extentProperties.setReportPath("output/myreport.html");
-	    extentProperties.setExtentXServerUrl("http://localhost:1337");
+	    extentProperties.setExtentXServerUrl("http://172.50.10.239:1337");
 	    extentProperties.setProjectName("sampleproject");
 	}
 

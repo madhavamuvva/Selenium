@@ -18,7 +18,7 @@ pipeline:
     image: maven:alpine
     commands:
      - mvn clean test
-     - man clean install
+     - mvn clean install
     when:
       events:
         - push

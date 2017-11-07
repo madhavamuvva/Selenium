@@ -3,6 +3,7 @@ package sample.bdd.framework.stepdefinitions;
 import java.io.File;
 
 import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import com.cucumber.listener.Reporter;
 
@@ -17,6 +18,12 @@ import cucumber.api.junit.Cucumber;
 
 public class TestRunner {
 
+	@BeforeClass
+	public static void setup() {
+	    ExtentProperties extentProperties = ExtentProperties.INSTANCE;
+	    extentProperties.setReportPath("output/myreport.html");
+	    extentProperties.setExtentXServerUrl("http://localhost:1337");
+	    extentProperties.setProjectName("MyProject");
 	@AfterClass
 	public static void teardown() {
 		Reporter.loadXMLConfig(new File("src/main/resources/extent-config.xml"));

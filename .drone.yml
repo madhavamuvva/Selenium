@@ -20,9 +20,6 @@ pipeline:
       events:
         - push
         - pull_request
-  report:
-    junit:
-       - /Users/mmuvva/Selenium/junit.xml
 services:
   selenium-hub:
     image: selenium/hub

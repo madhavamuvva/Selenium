@@ -1,5 +1,5 @@
 workspace:
-  path: /drone/src/github.com/madhavamuvva/Selenium
+  path: /drone/src/github.com/madhavamuvva/Selenium/sample_bdd_framework
 
 pipeline:
   firefox:

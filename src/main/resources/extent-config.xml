@@ -23,6 +23,9 @@
         <!-- top, bottom -->
         <testViewChartLocation>bottom</testViewChartLocation>
         
+        <!-- document title -->
+        <documentTitle>Cucumber Sample Project</documentTitle>
+        
         <!-- custom javascript -->
         <scripts>
             <![CDATA[

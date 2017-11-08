@@ -33,7 +33,7 @@ public class TestRunner {
 		Reporter.setSystemInfo("user", System.getProperty("user.name"));
 		Reporter.setSystemInfo("os", "Mac OSX");
 		Reporter.setTestRunnerOutput("Sample test runner output message");
-		Reporter.setSystemInfo("buildno","${build.no}");
+		Reporter.setSystemInfo("buildno","${buildNumber}");
 	}
 
 }

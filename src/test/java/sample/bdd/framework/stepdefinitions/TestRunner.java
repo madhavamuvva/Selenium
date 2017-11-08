@@ -11,6 +11,8 @@ import com.cucumber.listener.Reporter;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
+import sample.bdd.framework.helperclasses.App;
+
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/features", glue = "sample.bdd.framework.stepdefinitions", dryRun = false, plugin = {
@@ -19,21 +21,22 @@ import cucumber.api.junit.Cucumber;
 		"com.cucumber.listener.ExtentCucumberFormatter:" })
 
 public class TestRunner {
+		
 	@BeforeClass
 	public static void setup() {
 	    ExtentProperties extentProperties = ExtentProperties.INSTANCE;
 	    extentProperties.setReportPath("target/cucumber/extentreport.html");
 	    extentProperties.setExtentXServerUrl("http://172.50.10.239:1337");
-	    extentProperties.setProjectName("sampleproject");	   
+	    extentProperties.setProjectName("sampleproject");	 
 	}
 
 	@AfterClass
-	public static void teardown() {
+	public static void teardown() throws Exception {
 		Reporter.loadXMLConfig(new File("src/main/resources/extent-config.xml"));
 		Reporter.setSystemInfo("user", System.getProperty("user.name"));
 		Reporter.setSystemInfo("os", "Mac OSX");
-		Reporter.setTestRunnerOutput("Sample test runner output message");
-		Reporter.setSystemInfo("buildno","${buildNumber}");
+		Reporter.setTestRunnerOutput("Sample test runner output message");			
+		Reporter.setSystemInfo("buildno",new App().getBuildNumberFromProps());
 	}
 
 }

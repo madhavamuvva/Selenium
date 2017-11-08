@@ -17,6 +17,7 @@ import sample.bdd.framework.helperclasses.webdriverproperty;
 import sample.bdd.framework.testproperties.propertyvariable;
 
 public class hooks {
+		
 	
 	/**
 	 * Open the browser based on the env variable

@@ -10,8 +10,15 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
-		<buildNumber>v.${project.version} build ${maven.build.timestamp}</buildNumber>
+		<versionNumber>v.${project.version} build ${maven.build.timestamp}</versionNumber>
 	</properties>
+
+	<scm>
+		<connection>scm:svn:http://127.0.0.1/dummy</connection>
+		<developerConnection>scm:svn:https://127.0.0.1/dummy</developerConnection>
+		<tag>HEAD</tag>
+		<url>http://127.0.0.1/dummy</url>
+	</scm>
 	<dependencies>
 
 		<!-- https://mvnrepository.com/artifact/junit -->
@@ -102,7 +109,7 @@
 
 
 	</dependencies>
-	
+
 	<build>
 		<resources>
 			<resource>
@@ -116,46 +123,71 @@
 		</resources>
 
 		<!-- To use the plugin goals in your POM or parent POM -->
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.6.0</version>
-					<configuration>
-						<source>1.8</source>
-						<target>1.8</target>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>net.masterthought</groupId>
-					<artifactId>maven-cucumber-reporting</artifactId>
-					<version>3.10.0</version>
-					<executions>
-						<execution>
-							<id>execution</id>
-							<phase>test</phase>
-							<goals>
-								<goal>generate</goal>
-							</goals>
-							<configuration>
-								<projectName>sample-bdd-framework</projectName>
-								<outputDirectory>${project.build.directory}</outputDirectory>
-								<!-- this parameter is deprecated, use jsonFiles instead -->
-								<cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
-								<jsonFiles>
-									<param>sample.json</param>
-									<param>other.json</param>
-								</jsonFiles>
-								<parallelTesting>false</parallelTesting>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
 
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>net.masterthought</groupId>
+				<artifactId>maven-cucumber-reporting</artifactId>
+				<version>3.10.0</version>
+				<executions>
+					<execution>
+						<id>execution</id>
+						<phase>test</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<projectName>sample-bdd-framework</projectName>
+							<outputDirectory>${project.build.directory}</outputDirectory>
+							<!-- this parameter is deprecated, use jsonFiles instead -->
+							<cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
+							<jsonFiles>
+								<param>sample.json</param>
+								<param>other.json</param>
+							</jsonFiles>
+							<parallelTesting>false</parallelTesting>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
-			</plugins>
-		</pluginManagement>
+			<!-- maven buildnumber plug in -->
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>buildnumber-maven-plugin</artifactId>
+				<version>1.4</version>
+				<executions>
+					<execution>
+						<id>buildnumber</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>create</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<format>{0,number}.{1,number}.{2,number}</format>
+					<items>
+						<item>buildNumber</item>
+					</items>
+					<doCheck>false</doCheck>
+					<doUpdate>false</doUpdate>
+					<revisionOnScmFailure>unknownbuild</revisionOnScmFailure>
+				</configuration>
+			</plugin>
+		</plugins>
+
+		<finalName>${project.artifactId}-${project.version}.${buildNumber}</finalName>
 	</build>
 
 

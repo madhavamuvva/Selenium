@@ -14,6 +14,7 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import sample.bdd.framework.helperclasses.getscreenshot;
 import sample.bdd.framework.helperclasses.webdriverproperty;
+import sample.bdd.framework.testproperties.propertiesfile;
 import sample.bdd.framework.testproperties.propertyvariable;
 
 public class hooks {
@@ -42,7 +43,7 @@ public class hooks {
 				//firefoxcapability.setVersion("55.0");
 	            firefoxcapability.setPlatform(Platform.LINUX);
 	            try {
-	            webdriverproperty.driver.set(new RemoteWebDriver(new URL("http://selenium-hub:4444/wd/hub"), firefoxcapability));
+	            webdriverproperty.driver.set(new RemoteWebDriver(new URL(propertiesfile.readProperty("seleniumhuburl")), firefoxcapability));
 				} catch (MalformedURLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -53,7 +54,7 @@ public class hooks {
 				 chromecapability.setBrowserName("chrome");
 				 chromecapability.setPlatform(Platform.LINUX);
 				try {
-					webdriverproperty.driver.set(new RemoteWebDriver(new URL("http://selenium-hub:4444/wd/hub"), chromecapability));
+					webdriverproperty.driver.set(new RemoteWebDriver(new URL(propertiesfile.readProperty("seleniumhuburl")), chromecapability));
 				} catch (MalformedURLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -64,7 +65,7 @@ public class hooks {
 				 edgecapability.setBrowserName("MicrosoftEdge");
 				 edgecapability.setPlatform(Platform.LINUX);
 				try {
-					webdriverproperty.driver.set(new RemoteWebDriver(new URL("http://selenium-hub:4444/wd/hub"), edgecapability));
+					webdriverproperty.driver.set(new RemoteWebDriver(new URL(propertiesfile.readProperty("seleniumhuburl")), edgecapability));
 				} catch (MalformedURLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -77,7 +78,7 @@ public class hooks {
 				 chromecapabilitydefault.setBrowserName("chrome");
 				 chromecapabilitydefault.setPlatform(Platform.LINUX);
 				try {
-					webdriverproperty.driver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromecapabilitydefault));
+					webdriverproperty.driver.set(new RemoteWebDriver(new URL(propertiesfile.readProperty("seleniumhuburl")), chromecapabilitydefault));
 				} catch (MalformedURLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

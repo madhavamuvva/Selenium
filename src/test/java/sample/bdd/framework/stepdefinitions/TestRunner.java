@@ -12,6 +12,7 @@ import com.cucumber.listener.Reporter;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import sample.bdd.framework.helperclasses.App;
+import sample.bdd.framework.testproperties.propertiesfile;
 
 
 @RunWith(Cucumber.class)
@@ -26,7 +27,7 @@ public class TestRunner {
 	public static void setup() {
 	    ExtentProperties extentProperties = ExtentProperties.INSTANCE;
 	    extentProperties.setReportPath("target/cucumber/extentreport.html");
-	    extentProperties.setExtentXServerUrl("http://172.50.10.239:1337");
+	    extentProperties.setExtentXServerUrl(propertiesfile.readProperty("extentserverurl"));
 	    extentProperties.setProjectName("sampleproject");	 
 	}
 
@@ -36,7 +37,7 @@ public class TestRunner {
 		Reporter.setSystemInfo("user", System.getProperty("user.name"));
 		Reporter.setSystemInfo("os", "Mac OSX");
 		Reporter.setTestRunnerOutput("Sample test runner output message");			
-		Reporter.setSystemInfo("buildno",new App().getBuildNumberFromProps());
+		Reporter.setSystemInfo("buildno",new App().getBuildNumberFromProps("versionNumber") +" - "+new App().readPropertybuildnumber("buildNumber"));
 	}
 
 }

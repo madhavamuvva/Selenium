@@ -6,4 +6,5 @@ public class propertyvariable {
 		public static String screenshotpath= propertiesfile.readProperty("screenshotpath");
 		public static String expected_Registartion_Successful_Message= propertiesfile.readProperty("expected_Registartion_Successful_Message");
 		public static String expectedpagetitle=propertiesfile.readProperty("expectedpagetitle");
+				
 }

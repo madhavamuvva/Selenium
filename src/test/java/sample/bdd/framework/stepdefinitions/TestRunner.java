@@ -38,14 +38,6 @@ public class TestRunner {
 		Reporter.setSystemInfo("os", "LINUX");
 		Reporter.setTestRunnerOutput("Sample test runner output message");			
 		Reporter.setSystemInfo("buildno",new App().getBuildNumberFromProps("versionNumber") +" - "+new App().readPropertybuildnumber("buildNumber"));
-		String	browser = System.getProperty("BROWSER");
-		if(browser.equalsIgnoreCase("dockerfirefox"))
-		{
-		Reporter.setTestRunnerOutput("Test running in Firefox browser");
-		}else
-		{
-			Reporter.setTestRunnerOutput("Test running in chrome browser");
-		}
 	}
 
 }

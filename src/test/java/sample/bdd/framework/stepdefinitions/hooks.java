@@ -37,7 +37,8 @@ public class hooks {
 		}
 			switch (browser) {
 
-			case "dockerfirefox":				
+			case "dockerfirefox":			
+				Reporter.setSystemInfo("Test Started in ", "Firefox browser");
 				DesiredCapabilities firefoxcapability = DesiredCapabilities.firefox();
 				firefoxcapability.setBrowserName("firefox");
 				//firefoxcapability.setVersion("55.0");
@@ -50,6 +51,7 @@ public class hooks {
 				}
 				break;
 			case "dockerchrome":
+				Reporter.setSystemInfo("Test Started in ", "Chrome browser");
 				 DesiredCapabilities chromecapability = DesiredCapabilities.chrome();
 				 chromecapability.setBrowserName("chrome");
 				 chromecapability.setPlatform(Platform.LINUX);
@@ -61,6 +63,7 @@ public class hooks {
 				}
 				break;
 			case "dockeredge":
+				Reporter.setSystemInfo("Test Started in ", "Edge browser");
 				 DesiredCapabilities edgecapability = DesiredCapabilities.edge();
 				 edgecapability.setBrowserName("MicrosoftEdge");
 				 edgecapability.setPlatform(Platform.LINUX);

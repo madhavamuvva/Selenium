@@ -15,6 +15,7 @@ pipeline:
     image: maven:alpine
     commands:
      - "mvn clean install -DBROWSER=dockerfirefox"
+     - "mvn clean install -DBROWSER=dockerfirefox"
     when:
       events:
         - push
